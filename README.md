@@ -11,15 +11,4 @@ Youpidou!
 >>>>>>> FETCH_HEAD
 =======
 
-<<<<<<< HEAD
-blablablabla
-ciaociaociao
-
-=======
-This is really cool! 
-=======
-
-So, glyn has added this line
-=======
-Youpidou!
->>>>>>> FETCH_HEAD
+We're using tiles from [mapbox.com](https://www.mapbox.com/) and dropping them into [Leaflet.js](http://leafletjs.com/)
