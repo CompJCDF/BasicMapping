@@ -11,6 +11,11 @@ Youpidou!
 >>>>>>> FETCH_HEAD
 =======
 
+<<<<<<< HEAD
+blablablabla
+ciaociaociao
+
+=======
 This is really cool! 
 =======
 
