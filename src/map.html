@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Our First Map</title>
+     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+     <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="map"></div>
+
+    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+    <script src="js/_credentials.js"></script>
+    <script>
+        var map = L.map('map');
+
+        map.locate({setView: true, maxZoom: 16});
+
+        var tileLayer = L.tileLayer('http://{s}.tiles.mapbox.com/v3/' + map_id + '/{z}/{x}/{y}.png',  {
+                attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+                maxZoom: 18
+        }).addTo(map);
+
+        L.marker([51.479945, -3.182385])
+            .addTo(map)
+            .bindPopup("Here is the Office")
+            .openPopup();
+
+        var circle = L.circle([51.484117, -3.169397], 200, {
+            color: 'green'
+        }).addTo(map);
+
+        var polygon = L.polygon([
+            [51.483922, -3.180338],
+            [51.485739, -3.176583],
+            [51.488866, -3.178428],
+            [51.489413, -3.182269],
+            [51.488104, -3.185188]
+        ]).addTo(map);
+
+        function foundLocation(e) {
+            L.marker(e.latlng)
+                .addTo(map)
+                .bindPopup("You are here!")
+                .openPopup();
+        }
+
+        map.on('locationfound', foundLocation);
+
+    </script>
+</body>
+</html>
